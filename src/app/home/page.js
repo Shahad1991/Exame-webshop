@@ -18,24 +18,7 @@ const Home = () => {
           We handpick the best seasonal produce from local farms. Simple, sustainable, and full of flavor — order your box today and taste the difference.
         </p>
       </div>
-      <div className="flex gap-8">
-        <div className="flex flex-col items-center">
-          <img
-            src="/fruit.jpg"
-            alt="Fresh Fruits"
-            className="w-100 h-100 object-cover rounded-lg shadow-lg "
-          />
-        
-        </div>
-        <div className="flex flex-col items-center">
-          <img
-            src="/vegi.avif"
-            alt="Fresh Vegetables"
-            className="w-100 h-100 object-cover rounded-lg shadow-lg"
-          />
-        
-        </div>
-      </div>
+      
     </div>
   );
 };

@@ -6,7 +6,12 @@ const CartContext = createContext(undefined);
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
-  const [totalProfit, setTotalProfit] = useState(0);
+
+  // Beregn totalProfit dynamisk baseret på cartItems
+  const totalProfit = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
 
   const addToCart = (item) => {
     setCartItems((prevItems) => {
@@ -19,23 +24,16 @@ export function CartProvider({ children }) {
         return [...prevItems, { ...item, quantity: 1 }];
       }
     });
-
-    setTotalProfit((prevProfit) => prevProfit + item.price);
   };
 
   const removeFromCart = (id) => {
-    setCartItems((prevItems) => {
-      const item = prevItems.find((i) => i.id === id);
-      if (item) {
-        setTotalProfit((prevProfit) => prevProfit - item.price * item.quantity);
-        return prevItems.filter((i) => i.id !== id);
-      }
-      return prevItems;
-    });
+    setCartItems((prevItems) => prevItems.filter((i) => i.id !== id));
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, totalProfit }}>
+    <CartContext.Provider
+      value={{ cartItems, addToCart, removeFromCart, totalProfit }}
+    >
       {children}
     </CartContext.Provider>
   );
