@@ -13,6 +13,7 @@ const Header = () => {
             <li><Link href="/" className="hover:underline text-xl">Home</Link></li>
             <li><Link href="/shop" className="hover:underline text-xl">Shop</Link></li>
             <li><Link href="/cart" className="hover:underline text-xl">Cart</Link></li>
+            <li><Link href="/checkout" className="hover:underline text-xl">Checkout</Link></li>
           </ul>
         </nav>
       </div>

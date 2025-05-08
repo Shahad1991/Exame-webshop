@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useCart } from "../context/CartContext";
+import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
@@ -64,12 +65,11 @@ export default function Cart() {
             {totalProfit.toFixed(2)} kr.
           </span>
         </h4>
-        <button
-          className="mt-4 bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600 transition"
-          onClick={() => alert("Navigating to checkout...")}
-        >
-          Gå til Checkout
-        </button>
+        <Link href="/checkout">
+          
+            Gå til Checkout
+          
+        </Link>
       </div>
     </div>
   );
