@@ -1,7 +1,8 @@
 // ✅ Dette er en Server Component og fetcher data direkte fra Firestore ved hver request
 import { collection, getDocs, query } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
-import ProductCard from '../components/ProductCard'; // Importerer Client Component til visning
+import AddToCardButton from '../components/AddToCardButton'; // Importerer Client Component til visning
+import LikeButton from '../components/LikeButton'; // Importerer Client Component til visning
 
 // 🔁 Funktion som henter alle produkter fra Firestore
 const fetchProducts = async () => {
@@ -40,7 +41,28 @@ export default async function ShopPage() {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {products.map(product => (
-            <ProductCard key={product.id} product={product} />
+            <div
+              key={product.id}
+              className="border rounded-lg shadow-lg p-4 hover:shadow-xl transition-transform transform hover:scale-105 bg-white"
+            >
+              <div className="relative w-full h-60 mb-4">
+                <img
+                  src={product.image || '/placeholder.jpg'}
+                  alt={product.name}
+                  className="w-full h-full object-cover rounded-t-lg"
+                />
+                <div className="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded">
+                  {product.category || 'Uncategorized'}
+                </div>
+                <div className="absolute top-2 right-2">
+                  <LikeButton />
+                </div>
+              </div>
+              <h2 className="text-lg font-semibold text-gray-800 mb-2">{product.name}</h2>
+              <p className="text-sm text-gray-600 mb-2">{product.description}</p>
+              <p className="text-lg font-bold text-gray-800 mb-4">Price: {product.price}</p>
+              <AddToCardButton product={product} />
+            </div>
           ))}
         </div>
       )}
