@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Poppins } from 'next/font/google'
-import Header from "./components/header";
+import Header from "./components/Header";
 import { CartProvider } from "./context/CartContext";
 
 const poppins = Poppins({
