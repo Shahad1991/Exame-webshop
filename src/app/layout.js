@@ -1,11 +1,11 @@
 import "./globals.css";
 import { Poppins } from 'next/font/google'
-import Header from "./components/Header";
-import { CartProvider } from "./context/CartContext";
+import Header from "./Header"; // Header er en Server Component
+import { CartProvider } from "./context/CartContext"; 
 
 const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['400', '600', '700'], // Tilføj vægte du skal bruge
+  weight: ['400', '600', '700'], 
 })
 export const metadata = {
   title: "exame-webshop",
@@ -16,12 +16,12 @@ export default function RootLayout({ children }) {
   return (
     <html className="bg-green-200" lang="en">
       <body className={poppins.className}>
+        {/* Header er en Server Component, */}
         <Header />
         <div>
             <CartProvider>
               {children}
             </CartProvider>
-          
         </div>
       </body>
     </html>

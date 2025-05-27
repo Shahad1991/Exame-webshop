@@ -1,9 +1,8 @@
 // ✅ Dette er en Server Component og fetcher data direkte fra Firestore ved hver request
 import { collection, getDocs, query } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
-import AddToCardButton from '../components/AddToCardButton'; // Importerer Client Component til visning
-import LikeButton from '../components/LikeButton'; // Importerer Client Component til visning
-
+import AddToCardButton from '../components/AddToCardButton'; // Importerer Client Component til tilføjelse til kurv
+import LikeButton from '../components/LikeButton'; // Importerer Client Component til "like" funktionalitet
 // 🔁 Funktion som henter alle produkter fra Firestore
 const fetchProducts = async () => {
   try {
