@@ -14,7 +14,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html className="bg-green-200" lang="en">
+    <html  lang="en" style={{ backgroundColor: '#082804' }}>
       <body className={poppins.className}>
         {/* Header er en Server Component, */}
         <Header />

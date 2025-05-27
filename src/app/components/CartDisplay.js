@@ -15,7 +15,7 @@ export default function CartDisplay({ initialCartItems = [], initialTotal = 0 })
     : initialTotal;
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div className="p-6 bg-gray-100 min-h-screen  border-gray-300 rounded-lg shadow-lg">
       <h1 className="text-2xl font-bold mb-6">Din Indkøbskurv</h1>
       {cartItems.length === 0 ? (
         <p className="text-gray-600">Din kurv er tom.</p>
