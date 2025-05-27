@@ -32,9 +32,7 @@ export default async function ShopPage() {
   const products = await fetchProducts();
 
   return (
-    <div className="bg-green-200 p-6 min-h-screen">
-      <h1 className="text-3xl font-bold mb-6">Shop alle produkter</h1>
-
+    <div className=" p-6 min-h-screen">
       {products.length === 0 ? (
         <p>❗Ingen produkter fundet. Tjek konsollen for fejl.</p>
       ) : (
