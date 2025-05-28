@@ -15,12 +15,12 @@ export default function CartDisplay({ initialCartItems = [], initialTotal = 0 })
     : initialTotal;
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen  border-gray-300 rounded-lg shadow-lg">
+    <div className="p-6 bg-gray-100 border-gray-300 rounded-lg shadow-lg">
       <h1 className="text-2xl font-bold mb-6">Din Indkøbskurv</h1>
       {cartItems.length === 0 ? (
         <p className="text-gray-600">Din kurv er tom.</p>
       ) : (
-        <div className="space-y-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {cartItems.map((item) => (
             <div
               key={item.id}
@@ -29,7 +29,7 @@ export default function CartDisplay({ initialCartItems = [], initialTotal = 0 })
               <img
                 src={item.image || "/placeholder.jpg"}
                 alt={item.name}
-                className="w-1/3 h-40 object-cover"
+                className="w-1/3 h-50 object-cover"
               />
               <div className="p-4 flex flex-col justify-between w-2/3">
                 <div>
